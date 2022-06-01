@@ -1,0 +1,137 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="SigloXXIModelStoreContainer" CdmEntityContainer="SigloXXIEntities">
+    <EntitySetMapping Name="BOLETA">
+      <EntityTypeMapping TypeName="SigloXXIModel.BOLETA">
+        <MappingFragment StoreEntitySet="BOLETA">
+          <ScalarProperty Name="NRO_BOLETA" ColumnName="NRO_BOLETA" />
+          <ScalarProperty Name="FECHA_PAGO" ColumnName="FECHA_PAGO" />
+          <ScalarProperty Name="DETALLE_PEDIDO_1" ColumnName="DETALLE_PEDIDO_1" />
+          <ScalarProperty Name="DETALLE_PEDIDO" ColumnName="DETALLE_PEDIDO" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DETALLE_INSUMO">
+      <EntityTypeMapping TypeName="SigloXXIModel.DETALLE_INSUMO">
+        <MappingFragment StoreEntitySet="DETALLE_INSUMO">
+          <ScalarProperty Name="ID_DETALLE_INSUMO" ColumnName="ID_DETALLE_INSUMO" />
+          <ScalarProperty Name="ID_INSUMO" ColumnName="ID_INSUMO" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DETALLE_PEDIDO">
+      <EntityTypeMapping TypeName="SigloXXIModel.DETALLE_PEDIDO">
+        <MappingFragment StoreEntitySet="DETALLE_PEDIDO">
+          <ScalarProperty Name="DETALLE_PEDIDO1" ColumnName="DETALLE_PEDIDO" />
+          <ScalarProperty Name="TOTAL" ColumnName="TOTAL" />
+          <ScalarProperty Name="ID_INFORME" ColumnName="ID_INFORME" />
+          <ScalarProperty Name="NRO_RESERVA" ColumnName="NRO_RESERVA" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="INFORME">
+      <EntityTypeMapping TypeName="SigloXXIModel.INFORME">
+        <MappingFragment StoreEntitySet="INFORME">
+          <ScalarProperty Name="ID_INFORME" ColumnName="ID_INFORME" />
+          <ScalarProperty Name="FECHA" ColumnName="FECHA" />
+          <ScalarProperty Name="DESCRIPCION" ColumnName="DESCRIPCION" />
+          <ScalarProperty Name="ID_DETALLE_INSUMO" ColumnName="ID_DETALLE_INSUMO" />
+          <ScalarProperty Name="ID_USUARIO" ColumnName="ID_USUARIO" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="INSUMO">
+      <EntityTypeMapping TypeName="SigloXXIModel.INSUMO">
+        <MappingFragment StoreEntitySet="INSUMO">
+          <ScalarProperty Name="ID_INSUMO" ColumnName="ID_INSUMO" />
+          <ScalarProperty Name="NOMBRE_INSUMO" ColumnName="NOMBRE_INSUMO" />
+          <ScalarProperty Name="DESCRIPCION" ColumnName="DESCRIPCION" />
+          <ScalarProperty Name="PRECIO_UNITARIO" ColumnName="PRECIO_UNITARIO" />
+          <ScalarProperty Name="STOCK" ColumnName="STOCK" />
+          <ScalarProperty Name="ID_USUARIO" ColumnName="ID_USUARIO" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MESA">
+      <EntityTypeMapping TypeName="SigloXXIModel.MESA">
+        <MappingFragment StoreEntitySet="MESA">
+          <ScalarProperty Name="NRO_MESA" ColumnName="NRO_MESA" />
+          <ScalarProperty Name="CANT_SILLAS" ColumnName="CANT_SILLAS" />
+          <ScalarProperty Name="NRO_RESERVA" ColumnName="NRO_RESERVA" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="METODO_PAGO">
+      <EntityTypeMapping TypeName="SigloXXIModel.METODO_PAGO">
+        <MappingFragment StoreEntitySet="METODO_PAGO">
+          <ScalarProperty Name="ID_METODO" ColumnName="ID_METODO" />
+          <ScalarProperty Name="DESCRIPCION" ColumnName="DESCRIPCION" />
+          <ScalarProperty Name="NRO_BOLETA_1" ColumnName="NRO_BOLETA_1" />
+          <ScalarProperty Name="NRO_BOLETA" ColumnName="NRO_BOLETA" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PEDIDO">
+      <EntityTypeMapping TypeName="SigloXXIModel.PEDIDO">
+        <MappingFragment StoreEntitySet="PEDIDO">
+          <ScalarProperty Name="NRO_PEDIDO" ColumnName="NRO_PEDIDO" />
+          <ScalarProperty Name="FECHA_PEDIDO" ColumnName="FECHA_PEDIDO" />
+          <ScalarProperty Name="ESTADO_PEDIDO" ColumnName="ESTADO_PEDIDO" />
+          <ScalarProperty Name="NRO_MESA" ColumnName="NRO_MESA" />
+          <ScalarProperty Name="ID_USUARIO" ColumnName="ID_USUARIO" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PLATO">
+      <EntityTypeMapping TypeName="SigloXXIModel.PLATO">
+        <MappingFragment StoreEntitySet="PLATO">
+          <ScalarProperty Name="ID_PLATO" ColumnName="ID_PLATO" />
+          <ScalarProperty Name="NOMBRE_PLATO" ColumnName="NOMBRE_PLATO" />
+          <ScalarProperty Name="DESCRIPCION" ColumnName="DESCRIPCION" />
+          <ScalarProperty Name="PRECIO" ColumnName="PRECIO" />
+          <ScalarProperty Name="IMAGEN" ColumnName="IMAGEN" />
+          <ScalarProperty Name="NRO_RESERVA" ColumnName="NRO_RESERVA" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RESERVA">
+      <EntityTypeMapping TypeName="SigloXXIModel.RESERVA">
+        <MappingFragment StoreEntitySet="RESERVA">
+          <ScalarProperty Name="NRO_RESERVA" ColumnName="NRO_RESERVA" />
+          <ScalarProperty Name="FECHA_RESERVA" ColumnName="FECHA_RESERVA" />
+          <ScalarProperty Name="HORA_RESERVA" ColumnName="HORA_RESERVA" />
+          <ScalarProperty Name="ID_USUARIO" ColumnName="ID_USUARIO" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TIPO_USUARIO">
+      <EntityTypeMapping TypeName="SigloXXIModel.TIPO_USUARIO">
+        <MappingFragment StoreEntitySet="TIPO_USUARIO">
+          <ScalarProperty Name="ID_TIPO_USUARIO" ColumnName="ID_TIPO_USUARIO" />
+          <ScalarProperty Name="DESCRIPCION" ColumnName="DESCRIPCION" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="USUARIO">
+      <EntityTypeMapping TypeName="SigloXXIModel.USUARIO">
+        <MappingFragment StoreEntitySet="USUARIO">
+          <ScalarProperty Name="ID_USUARIO" ColumnName="ID_USUARIO" />
+          <ScalarProperty Name="USERNAME" ColumnName="USERNAME" />
+          <ScalarProperty Name="PASSWORD" ColumnName="PASSWORD" />
+          <ScalarProperty Name="NOMBRE" ColumnName="NOMBRE" />
+          <ScalarProperty Name="APELLIDO" ColumnName="APELLIDO" />
+          <ScalarProperty Name="RUT" ColumnName="RUT" />
+          <ScalarProperty Name="TELEFONO" ColumnName="TELEFONO" />
+          <ScalarProperty Name="ESTADO" ColumnName="ESTADO" />
+          <ScalarProperty Name="ID_TIPO_USUARIO" ColumnName="ID_TIPO_USUARIO" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="SP_UPDATE_USUARIO" FunctionName="SigloXXIModel.Store.SP_UPDATE_USUARIO" />
+    <FunctionImportMapping FunctionImportName="SP_DELETE_USUARIO" FunctionName="SigloXXIModel.Store.SP_DELETE_USUARIO" />
+    <FunctionImportMapping FunctionImportName="SP_INSERT_USUARIO" FunctionName="SigloXXIModel.Store.SP_INSERT_USUARIO" />
+    <FunctionImportMapping FunctionImportName="SP_LOGIN" FunctionName="SigloXXIModel.Store.SP_LOGIN" />
+    <FunctionImportMapping FunctionImportName="SP_DELETE_INSUMO" FunctionName="SigloXXIModel.Store.SP_DELETE_INSUMO" />
+    <FunctionImportMapping FunctionImportName="SP_UPDATE_INSUMO" FunctionName="SigloXXIModel.Store.SP_UPDATE_INSUMO" />
+  </EntityContainerMapping>
+</Mapping>

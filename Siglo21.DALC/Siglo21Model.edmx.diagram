@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="22cebfe0488a4c4cb95575d16ef5e40d" Name="Diagram1" ZoomLevel="86">
+        <EntityTypeShape EntityType="SigloXXIModel.BOLETA" Width="1.5" PointX="14.25" PointY="8.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="SigloXXIModel.DETALLE_INSUMO" Width="1.5" PointX="7.5" PointY="8.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="SigloXXIModel.DETALLE_PEDIDO" Width="1.5" PointX="12" PointY="8.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="SigloXXIModel.INFORME" Width="1.5" PointX="9.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SigloXXIModel.INSUMO" Width="1.5" PointX="5.25" PointY="8.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="SigloXXIModel.MESA" Width="1.5" PointX="7.5" PointY="15" IsExpanded="true" />
+        <EntityTypeShape EntityType="SigloXXIModel.METODO_PAGO" Width="1.5" PointX="16.5" PointY="8.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="SigloXXIModel.PEDIDO" Width="1.5" PointX="9.75" PointY="11" IsExpanded="true" />
+        <EntityTypeShape EntityType="SigloXXIModel.PLATO" Width="1.5" PointX="12" PointY="11.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="SigloXXIModel.RESERVA" Width="1.5" PointX="5.25" PointY="15" IsExpanded="true" />
+        <EntityTypeShape EntityType="SigloXXIModel.TIPO_USUARIO" Width="1.5" PointX="0.5" PointY="5.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="SigloXXIModel.USUARIO" Width="1.5" PointX="1.375" PointY="9.375" IsExpanded="true" />
+        <AssociationConnector Association="SigloXXIModel.BOLETA_DETALLE_PEDIDO_FK" ManuallyRouted="false" />
+        <AssociationConnector Association="SigloXXIModel.METODO_PAGO_BOLETA_FK" ManuallyRouted="false" />
+        <AssociationConnector Association="SigloXXIModel.DETALLE_INSUMO_INSUMO_FK" ManuallyRouted="false" />
+        <AssociationConnector Association="SigloXXIModel.INFORME_DETALLE_INSUMO_FK" ManuallyRouted="false" />
+        <AssociationConnector Association="SigloXXIModel.DETALLE_PEDIDO_INFORME_FK" ManuallyRouted="false" />
+        <AssociationConnector Association="SigloXXIModel.DETALLE_PEDIDO_PEDIDO_FK" ManuallyRouted="false" />
+        <AssociationConnector Association="SigloXXIModel.INFORME_USUARIO_FK" ManuallyRouted="false" />
+        <AssociationConnector Association="SigloXXIModel.INSUMO_USUARIO_FK" ManuallyRouted="false" />
+        <AssociationConnector Association="SigloXXIModel.MESA_RESERVA_FK" ManuallyRouted="false" />
+        <AssociationConnector Association="SigloXXIModel.PEDIDO_MESA_FK" ManuallyRouted="false" />
+        <AssociationConnector Association="SigloXXIModel.PEDIDO_USUARIO_FK" ManuallyRouted="false" />
+        <AssociationConnector Association="SigloXXIModel.PLATO_PEDIDO_FK" ManuallyRouted="false" />
+        <AssociationConnector Association="SigloXXIModel.RESERVA_USUARIO_FK" ManuallyRouted="false" />
+        <AssociationConnector Association="SigloXXIModel.USUARIO_TIPO_USUARIO_FK" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

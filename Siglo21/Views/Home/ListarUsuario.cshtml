@@ -1,0 +1,45 @@
+﻿
+@{
+    ViewBag.Title = "ListarUsuario";
+}
+
+
+<h2>ListarUsuario</h2>
+
+<table class="table">
+    <tr>
+        <th>ID</th>
+        <th>USERNAME</th>
+        <th>PASSWORD</th>
+        <th>NOMBRE</th>
+        <th>APELLIDO</th>
+        <th>RUT</th>
+        <th>TELEFONO</th>
+        <th>ID TIPO USUARIO</th>
+        <th>EDITAR</th>
+        <th>ELIMINAR</th>
+        <th>@Html.ActionLink("Agregar Usuario", "RegistrarUsuario", new { @class = "btn btn-success" })</th>
+        <td>
+    </tr>
+
+
+    @foreach (var item in ViewBag.ListaUsuario)
+    {
+        <tr>
+            <td>@item.ID_USUARIO</td>
+            <td>@item.USERNAME</td>
+            <td>@item.PASSWORD</td>
+            <td>@item.NOMBRE</td>
+            <td>@item.APELLIDO</td>
+            <td>@item.RUT</td>
+            <td>@item.TELEFONO</td>
+            <td>@item.ID_TIPO_USUARIO</td>
+            <td>@Html.ActionLink("Actualizar", "ModificarUsuario", new { id = item.ID_USUARIO }, new { @class = "btn btn-warning" })
+            <td>@Html.ActionLink("Agregar Usuario", "RegistrarUsuario", null , new { @class = "btn btn-success" })
+            <td>@Html.ActionLink("Eliminar", "EliminarUsuario", new { id = item.ID_USUARIO }, new { @class = "btn btn-danger" })
+            <td>
+        </tr>
+    }
+
+
+</table>

@@ -1,0 +1,10 @@
+C:\Users\xbast\Desktop\Portafolio 2\Siglo21\Siglo21.DALC\bin\Debug\Siglo21.DALC.dll.config
+C:\Users\xbast\Desktop\Portafolio 2\Siglo21\Siglo21.DALC\bin\Debug\Siglo21.DALC.dll
+C:\Users\xbast\Desktop\Portafolio 2\Siglo21\Siglo21.DALC\bin\Debug\Siglo21.DALC.pdb
+C:\Users\xbast\Desktop\Portafolio 2\Siglo21\Siglo21.DALC\bin\Debug\EntityFramework.dll
+C:\Users\xbast\Desktop\Portafolio 2\Siglo21\Siglo21.DALC\bin\Debug\EntityFramework.xml
+C:\Users\xbast\Desktop\Portafolio 2\Siglo21\Siglo21.DALC\obj\Debug\Siglo21.DALC.csproj.AssemblyReference.cache
+C:\Users\xbast\Desktop\Portafolio 2\Siglo21\Siglo21.DALC\obj\Debug\Siglo21.DALC.csproj.CoreCompileInputs.cache
+C:\Users\xbast\Desktop\Portafolio 2\Siglo21\Siglo21.DALC\obj\Debug\Siglo21.DALC.csproj.CopyComplete
+C:\Users\xbast\Desktop\Portafolio 2\Siglo21\Siglo21.DALC\obj\Debug\Siglo21.DALC.dll
+C:\Users\xbast\Desktop\Portafolio 2\Siglo21\Siglo21.DALC\obj\Debug\Siglo21.DALC.pdb

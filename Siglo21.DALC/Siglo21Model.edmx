@@ -1,0 +1,983 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="SigloXXIModel.Store" Provider="Oracle.ManagedDataAccess.Client" ProviderManifestToken="11.2" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="BOLETA">
+          <Key>
+            <PropertyRef Name="NRO_BOLETA" />
+          </Key>
+          <Property Name="NRO_BOLETA" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="FECHA_PAGO" Type="date" Nullable="false" />
+          <Property Name="DETALLE_PEDIDO_1" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="DETALLE_PEDIDO" Type="number" Precision="38" Scale="0" Nullable="false" />
+        </EntityType>
+        <EntityType Name="DETALLE_INSUMO">
+          <Key>
+            <PropertyRef Name="ID_DETALLE_INSUMO" />
+          </Key>
+          <Property Name="ID_DETALLE_INSUMO" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="ID_INSUMO" Type="number" Precision="38" Scale="0" Nullable="false" />
+        </EntityType>
+        <EntityType Name="DETALLE_PEDIDO">
+          <Key>
+            <PropertyRef Name="DETALLE_PEDIDO" />
+          </Key>
+          <Property Name="DETALLE_PEDIDO" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="TOTAL" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="ID_INFORME" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="NRO_RESERVA" Type="number" Precision="38" Scale="0" Nullable="false" />
+        </EntityType>
+        <EntityType Name="INFORME">
+          <Key>
+            <PropertyRef Name="ID_INFORME" />
+          </Key>
+          <Property Name="ID_INFORME" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="FECHA" Type="date" Nullable="false" />
+          <Property Name="DESCRIPCION" Type="varchar2" MaxLength="250" Nullable="false" />
+          <Property Name="ID_DETALLE_INSUMO" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="ID_USUARIO" Type="number" Precision="38" Scale="0" Nullable="false" />
+        </EntityType>
+        <EntityType Name="INSUMO">
+          <Key>
+            <PropertyRef Name="ID_INSUMO" />
+          </Key>
+          <Property Name="ID_INSUMO" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="NOMBRE_INSUMO" Type="varchar2" MaxLength="250" Nullable="false" />
+          <Property Name="DESCRIPCION" Type="varchar2" MaxLength="250" Nullable="false" />
+          <Property Name="PRECIO_UNITARIO" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="STOCK" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="ID_USUARIO" Type="number" Precision="38" Scale="0" Nullable="false" />
+        </EntityType>
+        <EntityType Name="MESA">
+          <Key>
+            <PropertyRef Name="NRO_MESA" />
+          </Key>
+          <Property Name="NRO_MESA" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="CANT_SILLAS" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="NRO_RESERVA" Type="number" Precision="38" Scale="0" Nullable="false" />
+        </EntityType>
+        <EntityType Name="METODO_PAGO">
+          <Key>
+            <PropertyRef Name="ID_METODO" />
+          </Key>
+          <Property Name="ID_METODO" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="DESCRIPCION" Type="varchar2" MaxLength="250" Nullable="false" />
+          <Property Name="NRO_BOLETA_1" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="NRO_BOLETA" Type="number" Precision="38" Scale="0" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PEDIDO">
+          <Key>
+            <PropertyRef Name="NRO_PEDIDO" />
+          </Key>
+          <Property Name="NRO_PEDIDO" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="FECHA_PEDIDO" Type="date" Nullable="false" />
+          <Property Name="ESTADO_PEDIDO" Type="char" MaxLength="1" Nullable="false" />
+          <Property Name="NRO_MESA" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="ID_USUARIO" Type="number" Precision="38" Scale="0" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PLATO">
+          <Key>
+            <PropertyRef Name="ID_PLATO" />
+          </Key>
+          <Property Name="ID_PLATO" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="NOMBRE_PLATO" Type="varchar2" MaxLength="250" Nullable="false" />
+          <Property Name="DESCRIPCION" Type="varchar2" MaxLength="250" Nullable="false" />
+          <Property Name="PRECIO" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="IMAGEN" Type="blob" />
+          <Property Name="NRO_RESERVA" Type="number" Precision="38" Scale="0" Nullable="false" />
+        </EntityType>
+        <EntityType Name="RESERVA">
+          <Key>
+            <PropertyRef Name="NRO_RESERVA" />
+          </Key>
+          <Property Name="NRO_RESERVA" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="FECHA_RESERVA" Type="date" Nullable="false" />
+          <Property Name="HORA_RESERVA" Type="date" Nullable="false" />
+          <Property Name="ID_USUARIO" Type="number" Precision="38" Scale="0" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TIPO_USUARIO">
+          <Key>
+            <PropertyRef Name="ID_TIPO_USUARIO" />
+          </Key>
+          <Property Name="ID_TIPO_USUARIO" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="DESCRIPCION" Type="varchar2" MaxLength="250" Nullable="false" />
+        </EntityType>
+        <EntityType Name="USUARIO">
+          <Key>
+            <PropertyRef Name="ID_USUARIO" />
+          </Key>
+          <Property Name="ID_USUARIO" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="USERNAME" Type="varchar2" MaxLength="250" Nullable="false" />
+          <Property Name="PASSWORD" Type="varchar2" MaxLength="250" Nullable="false" />
+          <Property Name="NOMBRE" Type="varchar2" MaxLength="250" Nullable="false" />
+          <Property Name="APELLIDO" Type="varchar2" MaxLength="250" Nullable="false" />
+          <Property Name="RUT" Type="varchar2" MaxLength="10" Nullable="false" />
+          <Property Name="TELEFONO" Type="number" Precision="15" Scale="0" Nullable="false" />
+          <Property Name="ESTADO" Type="char" MaxLength="1" Nullable="false" />
+          <Property Name="ID_TIPO_USUARIO" Type="number" Precision="38" Scale="0" Nullable="false" />
+        </EntityType>
+        <Association Name="BOLETA_DETALLE_PEDIDO_FK">
+          <End Role="DETALLE_PEDIDO" Type="Self.DETALLE_PEDIDO" Multiplicity="1" />
+          <End Role="BOLETA" Type="Self.BOLETA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DETALLE_PEDIDO">
+              <PropertyRef Name="DETALLE_PEDIDO" />
+            </Principal>
+            <Dependent Role="BOLETA">
+              <PropertyRef Name="DETALLE_PEDIDO_1" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="DETALLE_INSUMO_INSUMO_FK">
+          <End Role="INSUMO" Type="Self.INSUMO" Multiplicity="1" />
+          <End Role="DETALLE_INSUMO" Type="Self.DETALLE_INSUMO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="INSUMO">
+              <PropertyRef Name="ID_INSUMO" />
+            </Principal>
+            <Dependent Role="DETALLE_INSUMO">
+              <PropertyRef Name="ID_INSUMO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="DETALLE_PEDIDO_INFORME_FK">
+          <End Role="INFORME" Type="Self.INFORME" Multiplicity="1" />
+          <End Role="DETALLE_PEDIDO" Type="Self.DETALLE_PEDIDO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="INFORME">
+              <PropertyRef Name="ID_INFORME" />
+            </Principal>
+            <Dependent Role="DETALLE_PEDIDO">
+              <PropertyRef Name="ID_INFORME" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="DETALLE_PEDIDO_PEDIDO_FK">
+          <End Role="PEDIDO" Type="Self.PEDIDO" Multiplicity="1" />
+          <End Role="DETALLE_PEDIDO" Type="Self.DETALLE_PEDIDO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PEDIDO">
+              <PropertyRef Name="NRO_PEDIDO" />
+            </Principal>
+            <Dependent Role="DETALLE_PEDIDO">
+              <PropertyRef Name="NRO_RESERVA" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="INFORME_DETALLE_INSUMO_FK">
+          <End Role="DETALLE_INSUMO" Type="Self.DETALLE_INSUMO" Multiplicity="1" />
+          <End Role="INFORME" Type="Self.INFORME" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DETALLE_INSUMO">
+              <PropertyRef Name="ID_DETALLE_INSUMO" />
+            </Principal>
+            <Dependent Role="INFORME">
+              <PropertyRef Name="ID_DETALLE_INSUMO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="INFORME_USUARIO_FK">
+          <End Role="USUARIO" Type="Self.USUARIO" Multiplicity="1" />
+          <End Role="INFORME" Type="Self.INFORME" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="USUARIO">
+              <PropertyRef Name="ID_USUARIO" />
+            </Principal>
+            <Dependent Role="INFORME">
+              <PropertyRef Name="ID_USUARIO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="INSUMO_USUARIO_FK">
+          <End Role="USUARIO" Type="Self.USUARIO" Multiplicity="1" />
+          <End Role="INSUMO" Type="Self.INSUMO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="USUARIO">
+              <PropertyRef Name="ID_USUARIO" />
+            </Principal>
+            <Dependent Role="INSUMO">
+              <PropertyRef Name="ID_USUARIO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="MESA_RESERVA_FK">
+          <End Role="RESERVA" Type="Self.RESERVA" Multiplicity="1" />
+          <End Role="MESA" Type="Self.MESA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RESERVA">
+              <PropertyRef Name="NRO_RESERVA" />
+            </Principal>
+            <Dependent Role="MESA">
+              <PropertyRef Name="NRO_RESERVA" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="METODO_PAGO_BOLETA_FK">
+          <End Role="BOLETA" Type="Self.BOLETA" Multiplicity="1" />
+          <End Role="METODO_PAGO" Type="Self.METODO_PAGO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BOLETA">
+              <PropertyRef Name="NRO_BOLETA" />
+            </Principal>
+            <Dependent Role="METODO_PAGO">
+              <PropertyRef Name="NRO_BOLETA_1" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="PEDIDO_MESA_FK">
+          <End Role="MESA" Type="Self.MESA" Multiplicity="1" />
+          <End Role="PEDIDO" Type="Self.PEDIDO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MESA">
+              <PropertyRef Name="NRO_MESA" />
+            </Principal>
+            <Dependent Role="PEDIDO">
+              <PropertyRef Name="NRO_MESA" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="PEDIDO_USUARIO_FK">
+          <End Role="USUARIO" Type="Self.USUARIO" Multiplicity="1" />
+          <End Role="PEDIDO" Type="Self.PEDIDO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="USUARIO">
+              <PropertyRef Name="ID_USUARIO" />
+            </Principal>
+            <Dependent Role="PEDIDO">
+              <PropertyRef Name="ID_USUARIO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="PLATO_PEDIDO_FK">
+          <End Role="PEDIDO" Type="Self.PEDIDO" Multiplicity="1" />
+          <End Role="PLATO" Type="Self.PLATO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PEDIDO">
+              <PropertyRef Name="NRO_PEDIDO" />
+            </Principal>
+            <Dependent Role="PLATO">
+              <PropertyRef Name="NRO_RESERVA" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="RESERVA_USUARIO_FK">
+          <End Role="USUARIO" Type="Self.USUARIO" Multiplicity="1" />
+          <End Role="RESERVA" Type="Self.RESERVA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="USUARIO">
+              <PropertyRef Name="ID_USUARIO" />
+            </Principal>
+            <Dependent Role="RESERVA">
+              <PropertyRef Name="ID_USUARIO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="USUARIO_TIPO_USUARIO_FK">
+          <End Role="TIPO_USUARIO" Type="Self.TIPO_USUARIO" Multiplicity="1" />
+          <End Role="USUARIO" Type="Self.USUARIO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TIPO_USUARIO">
+              <PropertyRef Name="ID_TIPO_USUARIO" />
+            </Principal>
+            <Dependent Role="USUARIO">
+              <PropertyRef Name="ID_TIPO_USUARIO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Function Name="SP_DELETE_INSUMO" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="DESARROLLO">
+          <Parameter Name="U_IDINSUMO" Type="number" Mode="In" />
+        </Function>
+        <Function Name="SP_DELETE_USUARIO" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="DESARROLLO">
+          <Parameter Name="U_IDUSER" Type="number" Mode="In" />
+        </Function>
+        <Function Name="SP_INSERT_USUARIO" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="DESARROLLO">
+          <Parameter Name="U_USERNAME" Type="varchar2" Mode="In" />
+          <Parameter Name="U_PASSWORD" Type="varchar2" Mode="In" />
+          <Parameter Name="U_NOMBRE" Type="varchar2" Mode="In" />
+          <Parameter Name="U_APELLIDO" Type="varchar2" Mode="In" />
+          <Parameter Name="U_RUT" Type="varchar2" Mode="In" />
+          <Parameter Name="U_TELEFONO" Type="number" Mode="In" />
+          <Parameter Name="U_ESTADO" Type="char" Mode="In" />
+          <Parameter Name="U_IDTIPOUSUARIO" Type="number" Mode="In" />
+        </Function>
+        <Function Name="SP_LOGIN" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="DESARROLLO">
+          <Parameter Name="USERN" Type="varchar2" Mode="In" />
+          <Parameter Name="PASS" Type="varchar2" Mode="In" />
+          <Parameter Name="IDUSUARIO" Type="number" Mode="Out" />
+        </Function>
+        <Function Name="SP_UPDATE_INSUMO" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="DESARROLLO">
+          <Parameter Name="U_IDINSUMO" Type="number" Mode="In" />
+          <Parameter Name="U_NOMBREINSUMO" Type="varchar2" Mode="In" />
+          <Parameter Name="U_DESCRIPCION" Type="varchar2" Mode="In" />
+          <Parameter Name="U_PRECIOUNITARIO" Type="number" Mode="In" />
+          <Parameter Name="U_STOCK" Type="number" Mode="In" />
+        </Function>
+        <Function Name="SP_UPDATE_USUARIO" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="DESARROLLO">
+          <Parameter Name="U_IDUSER" Type="number" Mode="In" />
+          <Parameter Name="U_USERNAME" Type="varchar2" Mode="In" />
+          <Parameter Name="U_PASSWORD" Type="varchar2" Mode="In" />
+          <Parameter Name="U_NOMBRE" Type="varchar2" Mode="In" />
+          <Parameter Name="U_APELLIDO" Type="varchar2" Mode="In" />
+          <Parameter Name="U_RUT" Type="varchar2" Mode="In" />
+          <Parameter Name="U_TELEFONO" Type="number" Mode="In" />
+          <Parameter Name="U_ESTADO" Type="char" Mode="In" />
+          <Parameter Name="U_IDTIPOUSUARIO" Type="number" Mode="In" />
+        </Function>
+        <EntityContainer Name="SigloXXIModelStoreContainer">
+          <EntitySet Name="BOLETA" EntityType="Self.BOLETA" Schema="DESARROLLO" store:Type="Tables" />
+          <EntitySet Name="DETALLE_INSUMO" EntityType="Self.DETALLE_INSUMO" Schema="DESARROLLO" store:Type="Tables" />
+          <EntitySet Name="DETALLE_PEDIDO" EntityType="Self.DETALLE_PEDIDO" Schema="DESARROLLO" store:Type="Tables" />
+          <EntitySet Name="INFORME" EntityType="Self.INFORME" Schema="DESARROLLO" store:Type="Tables" />
+          <EntitySet Name="INSUMO" EntityType="Self.INSUMO" Schema="DESARROLLO" store:Type="Tables" />
+          <EntitySet Name="MESA" EntityType="Self.MESA" Schema="DESARROLLO" store:Type="Tables" />
+          <EntitySet Name="METODO_PAGO" EntityType="Self.METODO_PAGO" Schema="DESARROLLO" store:Type="Tables" />
+          <EntitySet Name="PEDIDO" EntityType="Self.PEDIDO" Schema="DESARROLLO" store:Type="Tables" />
+          <EntitySet Name="PLATO" EntityType="Self.PLATO" Schema="DESARROLLO" store:Type="Tables" />
+          <EntitySet Name="RESERVA" EntityType="Self.RESERVA" Schema="DESARROLLO" store:Type="Tables" />
+          <EntitySet Name="TIPO_USUARIO" EntityType="Self.TIPO_USUARIO" Schema="DESARROLLO" store:Type="Tables" />
+          <EntitySet Name="USUARIO" EntityType="Self.USUARIO" Schema="DESARROLLO" store:Type="Tables" />
+          <AssociationSet Name="BOLETA_DETALLE_PEDIDO_FK" Association="Self.BOLETA_DETALLE_PEDIDO_FK">
+            <End Role="DETALLE_PEDIDO" EntitySet="DETALLE_PEDIDO" />
+            <End Role="BOLETA" EntitySet="BOLETA" />
+          </AssociationSet>
+          <AssociationSet Name="DETALLE_INSUMO_INSUMO_FK" Association="Self.DETALLE_INSUMO_INSUMO_FK">
+            <End Role="INSUMO" EntitySet="INSUMO" />
+            <End Role="DETALLE_INSUMO" EntitySet="DETALLE_INSUMO" />
+          </AssociationSet>
+          <AssociationSet Name="DETALLE_PEDIDO_INFORME_FK" Association="Self.DETALLE_PEDIDO_INFORME_FK">
+            <End Role="INFORME" EntitySet="INFORME" />
+            <End Role="DETALLE_PEDIDO" EntitySet="DETALLE_PEDIDO" />
+          </AssociationSet>
+          <AssociationSet Name="DETALLE_PEDIDO_PEDIDO_FK" Association="Self.DETALLE_PEDIDO_PEDIDO_FK">
+            <End Role="PEDIDO" EntitySet="PEDIDO" />
+            <End Role="DETALLE_PEDIDO" EntitySet="DETALLE_PEDIDO" />
+          </AssociationSet>
+          <AssociationSet Name="INFORME_DETALLE_INSUMO_FK" Association="Self.INFORME_DETALLE_INSUMO_FK">
+            <End Role="DETALLE_INSUMO" EntitySet="DETALLE_INSUMO" />
+            <End Role="INFORME" EntitySet="INFORME" />
+          </AssociationSet>
+          <AssociationSet Name="INFORME_USUARIO_FK" Association="Self.INFORME_USUARIO_FK">
+            <End Role="USUARIO" EntitySet="USUARIO" />
+            <End Role="INFORME" EntitySet="INFORME" />
+          </AssociationSet>
+          <AssociationSet Name="INSUMO_USUARIO_FK" Association="Self.INSUMO_USUARIO_FK">
+            <End Role="USUARIO" EntitySet="USUARIO" />
+            <End Role="INSUMO" EntitySet="INSUMO" />
+          </AssociationSet>
+          <AssociationSet Name="MESA_RESERVA_FK" Association="Self.MESA_RESERVA_FK">
+            <End Role="RESERVA" EntitySet="RESERVA" />
+            <End Role="MESA" EntitySet="MESA" />
+          </AssociationSet>
+          <AssociationSet Name="METODO_PAGO_BOLETA_FK" Association="Self.METODO_PAGO_BOLETA_FK">
+            <End Role="BOLETA" EntitySet="BOLETA" />
+            <End Role="METODO_PAGO" EntitySet="METODO_PAGO" />
+          </AssociationSet>
+          <AssociationSet Name="PEDIDO_MESA_FK" Association="Self.PEDIDO_MESA_FK">
+            <End Role="MESA" EntitySet="MESA" />
+            <End Role="PEDIDO" EntitySet="PEDIDO" />
+          </AssociationSet>
+          <AssociationSet Name="PEDIDO_USUARIO_FK" Association="Self.PEDIDO_USUARIO_FK">
+            <End Role="USUARIO" EntitySet="USUARIO" />
+            <End Role="PEDIDO" EntitySet="PEDIDO" />
+          </AssociationSet>
+          <AssociationSet Name="PLATO_PEDIDO_FK" Association="Self.PLATO_PEDIDO_FK">
+            <End Role="PEDIDO" EntitySet="PEDIDO" />
+            <End Role="PLATO" EntitySet="PLATO" />
+          </AssociationSet>
+          <AssociationSet Name="RESERVA_USUARIO_FK" Association="Self.RESERVA_USUARIO_FK">
+            <End Role="USUARIO" EntitySet="USUARIO" />
+            <End Role="RESERVA" EntitySet="RESERVA" />
+          </AssociationSet>
+          <AssociationSet Name="USUARIO_TIPO_USUARIO_FK" Association="Self.USUARIO_TIPO_USUARIO_FK">
+            <End Role="TIPO_USUARIO" EntitySet="TIPO_USUARIO" />
+            <End Role="USUARIO" EntitySet="USUARIO" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="SigloXXIModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="BOLETA">
+          <Key>
+            <PropertyRef Name="NRO_BOLETA" />
+          </Key>
+          <Property Name="NRO_BOLETA" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="FECHA_PAGO" Type="DateTime" Nullable="false" />
+          <Property Name="DETALLE_PEDIDO_1" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="DETALLE_PEDIDO" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <NavigationProperty Name="DETALLE_PEDIDO1" Relationship="Self.BOLETA_DETALLE_PEDIDO_FK" FromRole="BOLETA" ToRole="DETALLE_PEDIDO" />
+          <NavigationProperty Name="METODO_PAGO" Relationship="Self.METODO_PAGO_BOLETA_FK" FromRole="BOLETA" ToRole="METODO_PAGO" />
+        </EntityType>
+        <EntityType Name="DETALLE_INSUMO">
+          <Key>
+            <PropertyRef Name="ID_DETALLE_INSUMO" />
+          </Key>
+          <Property Name="ID_DETALLE_INSUMO" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="ID_INSUMO" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <NavigationProperty Name="INSUMO" Relationship="Self.DETALLE_INSUMO_INSUMO_FK" FromRole="DETALLE_INSUMO" ToRole="INSUMO" />
+          <NavigationProperty Name="INFORME" Relationship="Self.INFORME_DETALLE_INSUMO_FK" FromRole="DETALLE_INSUMO" ToRole="INFORME" />
+        </EntityType>
+        <EntityType Name="DETALLE_PEDIDO">
+          <Key>
+            <PropertyRef Name="DETALLE_PEDIDO1" />
+          </Key>
+          <Property Name="DETALLE_PEDIDO1" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="TOTAL" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="ID_INFORME" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="NRO_RESERVA" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <NavigationProperty Name="BOLETA" Relationship="Self.BOLETA_DETALLE_PEDIDO_FK" FromRole="DETALLE_PEDIDO" ToRole="BOLETA" />
+          <NavigationProperty Name="INFORME" Relationship="Self.DETALLE_PEDIDO_INFORME_FK" FromRole="DETALLE_PEDIDO" ToRole="INFORME" />
+          <NavigationProperty Name="PEDIDO" Relationship="Self.DETALLE_PEDIDO_PEDIDO_FK" FromRole="DETALLE_PEDIDO" ToRole="PEDIDO" />
+        </EntityType>
+        <EntityType Name="INFORME">
+          <Key>
+            <PropertyRef Name="ID_INFORME" />
+          </Key>
+          <Property Name="ID_INFORME" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="FECHA" Type="DateTime" Nullable="false" />
+          <Property Name="DESCRIPCION" Type="String" MaxLength="250" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ID_DETALLE_INSUMO" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="ID_USUARIO" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <NavigationProperty Name="DETALLE_INSUMO" Relationship="Self.INFORME_DETALLE_INSUMO_FK" FromRole="INFORME" ToRole="DETALLE_INSUMO" />
+          <NavigationProperty Name="DETALLE_PEDIDO" Relationship="Self.DETALLE_PEDIDO_INFORME_FK" FromRole="INFORME" ToRole="DETALLE_PEDIDO" />
+          <NavigationProperty Name="USUARIO" Relationship="Self.INFORME_USUARIO_FK" FromRole="INFORME" ToRole="USUARIO" />
+        </EntityType>
+        <EntityType Name="INSUMO">
+          <Key>
+            <PropertyRef Name="ID_INSUMO" />
+          </Key>
+          <Property Name="ID_INSUMO" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="NOMBRE_INSUMO" Type="String" MaxLength="250" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="DESCRIPCION" Type="String" MaxLength="250" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="PRECIO_UNITARIO" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="STOCK" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="ID_USUARIO" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <NavigationProperty Name="DETALLE_INSUMO" Relationship="Self.DETALLE_INSUMO_INSUMO_FK" FromRole="INSUMO" ToRole="DETALLE_INSUMO" />
+          <NavigationProperty Name="USUARIO" Relationship="Self.INSUMO_USUARIO_FK" FromRole="INSUMO" ToRole="USUARIO" />
+        </EntityType>
+        <EntityType Name="MESA">
+          <Key>
+            <PropertyRef Name="NRO_MESA" />
+          </Key>
+          <Property Name="NRO_MESA" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="CANT_SILLAS" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="NRO_RESERVA" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <NavigationProperty Name="RESERVA" Relationship="Self.MESA_RESERVA_FK" FromRole="MESA" ToRole="RESERVA" />
+          <NavigationProperty Name="PEDIDO" Relationship="Self.PEDIDO_MESA_FK" FromRole="MESA" ToRole="PEDIDO" />
+        </EntityType>
+        <EntityType Name="METODO_PAGO">
+          <Key>
+            <PropertyRef Name="ID_METODO" />
+          </Key>
+          <Property Name="ID_METODO" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="DESCRIPCION" Type="String" MaxLength="250" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="NRO_BOLETA_1" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="NRO_BOLETA" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <NavigationProperty Name="BOLETA" Relationship="Self.METODO_PAGO_BOLETA_FK" FromRole="METODO_PAGO" ToRole="BOLETA" />
+        </EntityType>
+        <EntityType Name="PEDIDO">
+          <Key>
+            <PropertyRef Name="NRO_PEDIDO" />
+          </Key>
+          <Property Name="NRO_PEDIDO" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="FECHA_PEDIDO" Type="DateTime" Nullable="false" />
+          <Property Name="ESTADO_PEDIDO" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="NRO_MESA" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="ID_USUARIO" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <NavigationProperty Name="DETALLE_PEDIDO" Relationship="Self.DETALLE_PEDIDO_PEDIDO_FK" FromRole="PEDIDO" ToRole="DETALLE_PEDIDO" />
+          <NavigationProperty Name="MESA" Relationship="Self.PEDIDO_MESA_FK" FromRole="PEDIDO" ToRole="MESA" />
+          <NavigationProperty Name="USUARIO" Relationship="Self.PEDIDO_USUARIO_FK" FromRole="PEDIDO" ToRole="USUARIO" />
+          <NavigationProperty Name="PLATO" Relationship="Self.PLATO_PEDIDO_FK" FromRole="PEDIDO" ToRole="PLATO" />
+        </EntityType>
+        <EntityType Name="PLATO">
+          <Key>
+            <PropertyRef Name="ID_PLATO" />
+          </Key>
+          <Property Name="ID_PLATO" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="NOMBRE_PLATO" Type="String" MaxLength="250" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="DESCRIPCION" Type="String" MaxLength="250" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="PRECIO" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="IMAGEN" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="NRO_RESERVA" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <NavigationProperty Name="PEDIDO" Relationship="Self.PLATO_PEDIDO_FK" FromRole="PLATO" ToRole="PEDIDO" />
+        </EntityType>
+        <EntityType Name="RESERVA">
+          <Key>
+            <PropertyRef Name="NRO_RESERVA" />
+          </Key>
+          <Property Name="NRO_RESERVA" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="FECHA_RESERVA" Type="DateTime" Nullable="false" />
+          <Property Name="HORA_RESERVA" Type="DateTime" Nullable="false" />
+          <Property Name="ID_USUARIO" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <NavigationProperty Name="MESA" Relationship="Self.MESA_RESERVA_FK" FromRole="RESERVA" ToRole="MESA" />
+          <NavigationProperty Name="USUARIO" Relationship="Self.RESERVA_USUARIO_FK" FromRole="RESERVA" ToRole="USUARIO" />
+        </EntityType>
+        <EntityType Name="TIPO_USUARIO">
+          <Key>
+            <PropertyRef Name="ID_TIPO_USUARIO" />
+          </Key>
+          <Property Name="ID_TIPO_USUARIO" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="DESCRIPCION" Type="String" MaxLength="250" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="USUARIO" Relationship="Self.USUARIO_TIPO_USUARIO_FK" FromRole="TIPO_USUARIO" ToRole="USUARIO" />
+        </EntityType>
+        <EntityType Name="USUARIO">
+          <Key>
+            <PropertyRef Name="ID_USUARIO" />
+          </Key>
+          <Property Name="ID_USUARIO" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="USERNAME" Type="String" MaxLength="250" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="PASSWORD" Type="String" MaxLength="250" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="NOMBRE" Type="String" MaxLength="250" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="APELLIDO" Type="String" MaxLength="250" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="RUT" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="TELEFONO" Type="Int64" Nullable="false" />
+          <Property Name="ESTADO" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="ID_TIPO_USUARIO" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <NavigationProperty Name="INFORME" Relationship="Self.INFORME_USUARIO_FK" FromRole="USUARIO" ToRole="INFORME" />
+          <NavigationProperty Name="INSUMO" Relationship="Self.INSUMO_USUARIO_FK" FromRole="USUARIO" ToRole="INSUMO" />
+          <NavigationProperty Name="PEDIDO" Relationship="Self.PEDIDO_USUARIO_FK" FromRole="USUARIO" ToRole="PEDIDO" />
+          <NavigationProperty Name="RESERVA" Relationship="Self.RESERVA_USUARIO_FK" FromRole="USUARIO" ToRole="RESERVA" />
+          <NavigationProperty Name="TIPO_USUARIO" Relationship="Self.USUARIO_TIPO_USUARIO_FK" FromRole="USUARIO" ToRole="TIPO_USUARIO" />
+        </EntityType>
+        <Association Name="BOLETA_DETALLE_PEDIDO_FK">
+          <End Role="DETALLE_PEDIDO" Type="Self.DETALLE_PEDIDO" Multiplicity="1" />
+          <End Role="BOLETA" Type="Self.BOLETA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DETALLE_PEDIDO">
+              <PropertyRef Name="DETALLE_PEDIDO1" />
+            </Principal>
+            <Dependent Role="BOLETA">
+              <PropertyRef Name="DETALLE_PEDIDO_1" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="METODO_PAGO_BOLETA_FK">
+          <End Role="BOLETA" Type="Self.BOLETA" Multiplicity="1" />
+          <End Role="METODO_PAGO" Type="Self.METODO_PAGO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BOLETA">
+              <PropertyRef Name="NRO_BOLETA" />
+            </Principal>
+            <Dependent Role="METODO_PAGO">
+              <PropertyRef Name="NRO_BOLETA_1" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="DETALLE_INSUMO_INSUMO_FK">
+          <End Role="INSUMO" Type="Self.INSUMO" Multiplicity="1" />
+          <End Role="DETALLE_INSUMO" Type="Self.DETALLE_INSUMO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="INSUMO">
+              <PropertyRef Name="ID_INSUMO" />
+            </Principal>
+            <Dependent Role="DETALLE_INSUMO">
+              <PropertyRef Name="ID_INSUMO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="INFORME_DETALLE_INSUMO_FK">
+          <End Role="DETALLE_INSUMO" Type="Self.DETALLE_INSUMO" Multiplicity="1" />
+          <End Role="INFORME" Type="Self.INFORME" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DETALLE_INSUMO">
+              <PropertyRef Name="ID_DETALLE_INSUMO" />
+            </Principal>
+            <Dependent Role="INFORME">
+              <PropertyRef Name="ID_DETALLE_INSUMO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="DETALLE_PEDIDO_INFORME_FK">
+          <End Role="INFORME" Type="Self.INFORME" Multiplicity="1" />
+          <End Role="DETALLE_PEDIDO" Type="Self.DETALLE_PEDIDO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="INFORME">
+              <PropertyRef Name="ID_INFORME" />
+            </Principal>
+            <Dependent Role="DETALLE_PEDIDO">
+              <PropertyRef Name="ID_INFORME" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="DETALLE_PEDIDO_PEDIDO_FK">
+          <End Role="PEDIDO" Type="Self.PEDIDO" Multiplicity="1" />
+          <End Role="DETALLE_PEDIDO" Type="Self.DETALLE_PEDIDO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PEDIDO">
+              <PropertyRef Name="NRO_PEDIDO" />
+            </Principal>
+            <Dependent Role="DETALLE_PEDIDO">
+              <PropertyRef Name="NRO_RESERVA" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="INFORME_USUARIO_FK">
+          <End Role="USUARIO" Type="Self.USUARIO" Multiplicity="1" />
+          <End Role="INFORME" Type="Self.INFORME" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="USUARIO">
+              <PropertyRef Name="ID_USUARIO" />
+            </Principal>
+            <Dependent Role="INFORME">
+              <PropertyRef Name="ID_USUARIO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="INSUMO_USUARIO_FK">
+          <End Role="USUARIO" Type="Self.USUARIO" Multiplicity="1" />
+          <End Role="INSUMO" Type="Self.INSUMO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="USUARIO">
+              <PropertyRef Name="ID_USUARIO" />
+            </Principal>
+            <Dependent Role="INSUMO">
+              <PropertyRef Name="ID_USUARIO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="MESA_RESERVA_FK">
+          <End Role="RESERVA" Type="Self.RESERVA" Multiplicity="1" />
+          <End Role="MESA" Type="Self.MESA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RESERVA">
+              <PropertyRef Name="NRO_RESERVA" />
+            </Principal>
+            <Dependent Role="MESA">
+              <PropertyRef Name="NRO_RESERVA" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="PEDIDO_MESA_FK">
+          <End Role="MESA" Type="Self.MESA" Multiplicity="1" />
+          <End Role="PEDIDO" Type="Self.PEDIDO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MESA">
+              <PropertyRef Name="NRO_MESA" />
+            </Principal>
+            <Dependent Role="PEDIDO">
+              <PropertyRef Name="NRO_MESA" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="PEDIDO_USUARIO_FK">
+          <End Role="USUARIO" Type="Self.USUARIO" Multiplicity="1" />
+          <End Role="PEDIDO" Type="Self.PEDIDO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="USUARIO">
+              <PropertyRef Name="ID_USUARIO" />
+            </Principal>
+            <Dependent Role="PEDIDO">
+              <PropertyRef Name="ID_USUARIO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="PLATO_PEDIDO_FK">
+          <End Role="PEDIDO" Type="Self.PEDIDO" Multiplicity="1" />
+          <End Role="PLATO" Type="Self.PLATO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PEDIDO">
+              <PropertyRef Name="NRO_PEDIDO" />
+            </Principal>
+            <Dependent Role="PLATO">
+              <PropertyRef Name="NRO_RESERVA" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="RESERVA_USUARIO_FK">
+          <End Role="USUARIO" Type="Self.USUARIO" Multiplicity="1" />
+          <End Role="RESERVA" Type="Self.RESERVA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="USUARIO">
+              <PropertyRef Name="ID_USUARIO" />
+            </Principal>
+            <Dependent Role="RESERVA">
+              <PropertyRef Name="ID_USUARIO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="USUARIO_TIPO_USUARIO_FK">
+          <End Role="TIPO_USUARIO" Type="Self.TIPO_USUARIO" Multiplicity="1" />
+          <End Role="USUARIO" Type="Self.USUARIO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TIPO_USUARIO">
+              <PropertyRef Name="ID_TIPO_USUARIO" />
+            </Principal>
+            <Dependent Role="USUARIO">
+              <PropertyRef Name="ID_TIPO_USUARIO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="SigloXXIEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="BOLETA" EntityType="Self.BOLETA" />
+          <EntitySet Name="DETALLE_INSUMO" EntityType="Self.DETALLE_INSUMO" />
+          <EntitySet Name="DETALLE_PEDIDO" EntityType="Self.DETALLE_PEDIDO" />
+          <EntitySet Name="INFORME" EntityType="Self.INFORME" />
+          <EntitySet Name="INSUMO" EntityType="Self.INSUMO" />
+          <EntitySet Name="MESA" EntityType="Self.MESA" />
+          <EntitySet Name="METODO_PAGO" EntityType="Self.METODO_PAGO" />
+          <EntitySet Name="PEDIDO" EntityType="Self.PEDIDO" />
+          <EntitySet Name="PLATO" EntityType="Self.PLATO" />
+          <EntitySet Name="RESERVA" EntityType="Self.RESERVA" />
+          <EntitySet Name="TIPO_USUARIO" EntityType="Self.TIPO_USUARIO" />
+          <EntitySet Name="USUARIO" EntityType="Self.USUARIO" />
+          <AssociationSet Name="BOLETA_DETALLE_PEDIDO_FK" Association="Self.BOLETA_DETALLE_PEDIDO_FK">
+            <End Role="DETALLE_PEDIDO" EntitySet="DETALLE_PEDIDO" />
+            <End Role="BOLETA" EntitySet="BOLETA" />
+          </AssociationSet>
+          <AssociationSet Name="METODO_PAGO_BOLETA_FK" Association="Self.METODO_PAGO_BOLETA_FK">
+            <End Role="BOLETA" EntitySet="BOLETA" />
+            <End Role="METODO_PAGO" EntitySet="METODO_PAGO" />
+          </AssociationSet>
+          <AssociationSet Name="DETALLE_INSUMO_INSUMO_FK" Association="Self.DETALLE_INSUMO_INSUMO_FK">
+            <End Role="INSUMO" EntitySet="INSUMO" />
+            <End Role="DETALLE_INSUMO" EntitySet="DETALLE_INSUMO" />
+          </AssociationSet>
+          <AssociationSet Name="INFORME_DETALLE_INSUMO_FK" Association="Self.INFORME_DETALLE_INSUMO_FK">
+            <End Role="DETALLE_INSUMO" EntitySet="DETALLE_INSUMO" />
+            <End Role="INFORME" EntitySet="INFORME" />
+          </AssociationSet>
+          <AssociationSet Name="DETALLE_PEDIDO_INFORME_FK" Association="Self.DETALLE_PEDIDO_INFORME_FK">
+            <End Role="INFORME" EntitySet="INFORME" />
+            <End Role="DETALLE_PEDIDO" EntitySet="DETALLE_PEDIDO" />
+          </AssociationSet>
+          <AssociationSet Name="DETALLE_PEDIDO_PEDIDO_FK" Association="Self.DETALLE_PEDIDO_PEDIDO_FK">
+            <End Role="PEDIDO" EntitySet="PEDIDO" />
+            <End Role="DETALLE_PEDIDO" EntitySet="DETALLE_PEDIDO" />
+          </AssociationSet>
+          <AssociationSet Name="INFORME_USUARIO_FK" Association="Self.INFORME_USUARIO_FK">
+            <End Role="USUARIO" EntitySet="USUARIO" />
+            <End Role="INFORME" EntitySet="INFORME" />
+          </AssociationSet>
+          <AssociationSet Name="INSUMO_USUARIO_FK" Association="Self.INSUMO_USUARIO_FK">
+            <End Role="USUARIO" EntitySet="USUARIO" />
+            <End Role="INSUMO" EntitySet="INSUMO" />
+          </AssociationSet>
+          <AssociationSet Name="MESA_RESERVA_FK" Association="Self.MESA_RESERVA_FK">
+            <End Role="RESERVA" EntitySet="RESERVA" />
+            <End Role="MESA" EntitySet="MESA" />
+          </AssociationSet>
+          <AssociationSet Name="PEDIDO_MESA_FK" Association="Self.PEDIDO_MESA_FK">
+            <End Role="MESA" EntitySet="MESA" />
+            <End Role="PEDIDO" EntitySet="PEDIDO" />
+          </AssociationSet>
+          <AssociationSet Name="PEDIDO_USUARIO_FK" Association="Self.PEDIDO_USUARIO_FK">
+            <End Role="USUARIO" EntitySet="USUARIO" />
+            <End Role="PEDIDO" EntitySet="PEDIDO" />
+          </AssociationSet>
+          <AssociationSet Name="PLATO_PEDIDO_FK" Association="Self.PLATO_PEDIDO_FK">
+            <End Role="PEDIDO" EntitySet="PEDIDO" />
+            <End Role="PLATO" EntitySet="PLATO" />
+          </AssociationSet>
+          <AssociationSet Name="RESERVA_USUARIO_FK" Association="Self.RESERVA_USUARIO_FK">
+            <End Role="USUARIO" EntitySet="USUARIO" />
+            <End Role="RESERVA" EntitySet="RESERVA" />
+          </AssociationSet>
+          <AssociationSet Name="USUARIO_TIPO_USUARIO_FK" Association="Self.USUARIO_TIPO_USUARIO_FK">
+            <End Role="TIPO_USUARIO" EntitySet="TIPO_USUARIO" />
+            <End Role="USUARIO" EntitySet="USUARIO" />
+          </AssociationSet>
+          <FunctionImport Name="SP_UPDATE_USUARIO">
+            <Parameter Name="U_IDUSER" Mode="In" Type="Decimal" />
+            <Parameter Name="U_USERNAME" Mode="In" Type="String" />
+            <Parameter Name="U_PASSWORD" Mode="In" Type="String" />
+            <Parameter Name="U_NOMBRE" Mode="In" Type="String" />
+            <Parameter Name="U_APELLIDO" Mode="In" Type="String" />
+            <Parameter Name="U_RUT" Mode="In" Type="String" />
+            <Parameter Name="U_TELEFONO" Mode="In" Type="Decimal" />
+            <Parameter Name="U_ESTADO" Mode="In" Type="String" />
+            <Parameter Name="U_IDTIPOUSUARIO" Mode="In" Type="Decimal" />
+          </FunctionImport>
+          <FunctionImport Name="SP_DELETE_USUARIO">
+          <Parameter Name="U_IDUSER" Mode="In" Type="Decimal" />
+          </FunctionImport>
+          <FunctionImport Name="SP_INSERT_USUARIO">
+            <Parameter Name="U_USERNAME" Mode="In" Type="String" />
+            <Parameter Name="U_PASSWORD" Mode="In" Type="String" />
+            <Parameter Name="U_NOMBRE" Mode="In" Type="String" />
+            <Parameter Name="U_APELLIDO" Mode="In" Type="String" />
+            <Parameter Name="U_RUT" Mode="In" Type="String" />
+            <Parameter Name="U_TELEFONO" Mode="In" Type="Decimal" />
+            <Parameter Name="U_ESTADO" Mode="In" Type="String" />
+            <Parameter Name="U_IDTIPOUSUARIO" Mode="In" Type="Decimal" />
+          </FunctionImport>
+          <FunctionImport Name="SP_LOGIN">
+            <Parameter Name="USERN" Mode="In" Type="String" />
+            <Parameter Name="PASS" Mode="In" Type="String" />
+            <Parameter Name="IDUSUARIO" Mode="Out" Type="Decimal" />
+          </FunctionImport>
+          <FunctionImport Name="SP_DELETE_INSUMO">
+          <Parameter Name="U_IDINSUMO" Mode="In" Type="Decimal" />
+          </FunctionImport>
+          <FunctionImport Name="SP_UPDATE_INSUMO">
+            <Parameter Name="U_IDINSUMO" Mode="In" Type="Decimal" />
+            <Parameter Name="U_NOMBREINSUMO" Mode="In" Type="String" />
+            <Parameter Name="U_DESCRIPCION" Mode="In" Type="String" />
+            <Parameter Name="U_PRECIOUNITARIO" Mode="In" Type="Decimal" />
+            <Parameter Name="U_STOCK" Mode="In" Type="Decimal" />
+          </FunctionImport>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="SigloXXIModelStoreContainer" CdmEntityContainer="SigloXXIEntities">
+          <EntitySetMapping Name="BOLETA">
+            <EntityTypeMapping TypeName="SigloXXIModel.BOLETA">
+              <MappingFragment StoreEntitySet="BOLETA">
+                <ScalarProperty Name="NRO_BOLETA" ColumnName="NRO_BOLETA" />
+                <ScalarProperty Name="FECHA_PAGO" ColumnName="FECHA_PAGO" />
+                <ScalarProperty Name="DETALLE_PEDIDO_1" ColumnName="DETALLE_PEDIDO_1" />
+                <ScalarProperty Name="DETALLE_PEDIDO" ColumnName="DETALLE_PEDIDO" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DETALLE_INSUMO">
+            <EntityTypeMapping TypeName="SigloXXIModel.DETALLE_INSUMO">
+              <MappingFragment StoreEntitySet="DETALLE_INSUMO">
+                <ScalarProperty Name="ID_DETALLE_INSUMO" ColumnName="ID_DETALLE_INSUMO" />
+                <ScalarProperty Name="ID_INSUMO" ColumnName="ID_INSUMO" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DETALLE_PEDIDO">
+            <EntityTypeMapping TypeName="SigloXXIModel.DETALLE_PEDIDO">
+              <MappingFragment StoreEntitySet="DETALLE_PEDIDO">
+                <ScalarProperty Name="DETALLE_PEDIDO1" ColumnName="DETALLE_PEDIDO" />
+                <ScalarProperty Name="TOTAL" ColumnName="TOTAL" />
+                <ScalarProperty Name="ID_INFORME" ColumnName="ID_INFORME" />
+                <ScalarProperty Name="NRO_RESERVA" ColumnName="NRO_RESERVA" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="INFORME">
+            <EntityTypeMapping TypeName="SigloXXIModel.INFORME">
+              <MappingFragment StoreEntitySet="INFORME">
+                <ScalarProperty Name="ID_INFORME" ColumnName="ID_INFORME" />
+                <ScalarProperty Name="FECHA" ColumnName="FECHA" />
+                <ScalarProperty Name="DESCRIPCION" ColumnName="DESCRIPCION" />
+                <ScalarProperty Name="ID_DETALLE_INSUMO" ColumnName="ID_DETALLE_INSUMO" />
+                <ScalarProperty Name="ID_USUARIO" ColumnName="ID_USUARIO" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="INSUMO">
+            <EntityTypeMapping TypeName="SigloXXIModel.INSUMO">
+              <MappingFragment StoreEntitySet="INSUMO">
+                <ScalarProperty Name="ID_INSUMO" ColumnName="ID_INSUMO" />
+                <ScalarProperty Name="NOMBRE_INSUMO" ColumnName="NOMBRE_INSUMO" />
+                <ScalarProperty Name="DESCRIPCION" ColumnName="DESCRIPCION" />
+                <ScalarProperty Name="PRECIO_UNITARIO" ColumnName="PRECIO_UNITARIO" />
+                <ScalarProperty Name="STOCK" ColumnName="STOCK" />
+                <ScalarProperty Name="ID_USUARIO" ColumnName="ID_USUARIO" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MESA">
+            <EntityTypeMapping TypeName="SigloXXIModel.MESA">
+              <MappingFragment StoreEntitySet="MESA">
+                <ScalarProperty Name="NRO_MESA" ColumnName="NRO_MESA" />
+                <ScalarProperty Name="CANT_SILLAS" ColumnName="CANT_SILLAS" />
+                <ScalarProperty Name="NRO_RESERVA" ColumnName="NRO_RESERVA" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="METODO_PAGO">
+            <EntityTypeMapping TypeName="SigloXXIModel.METODO_PAGO">
+              <MappingFragment StoreEntitySet="METODO_PAGO">
+                <ScalarProperty Name="ID_METODO" ColumnName="ID_METODO" />
+                <ScalarProperty Name="DESCRIPCION" ColumnName="DESCRIPCION" />
+                <ScalarProperty Name="NRO_BOLETA_1" ColumnName="NRO_BOLETA_1" />
+                <ScalarProperty Name="NRO_BOLETA" ColumnName="NRO_BOLETA" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PEDIDO">
+            <EntityTypeMapping TypeName="SigloXXIModel.PEDIDO">
+              <MappingFragment StoreEntitySet="PEDIDO">
+                <ScalarProperty Name="NRO_PEDIDO" ColumnName="NRO_PEDIDO" />
+                <ScalarProperty Name="FECHA_PEDIDO" ColumnName="FECHA_PEDIDO" />
+                <ScalarProperty Name="ESTADO_PEDIDO" ColumnName="ESTADO_PEDIDO" />
+                <ScalarProperty Name="NRO_MESA" ColumnName="NRO_MESA" />
+                <ScalarProperty Name="ID_USUARIO" ColumnName="ID_USUARIO" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PLATO">
+            <EntityTypeMapping TypeName="SigloXXIModel.PLATO">
+              <MappingFragment StoreEntitySet="PLATO">
+                <ScalarProperty Name="ID_PLATO" ColumnName="ID_PLATO" />
+                <ScalarProperty Name="NOMBRE_PLATO" ColumnName="NOMBRE_PLATO" />
+                <ScalarProperty Name="DESCRIPCION" ColumnName="DESCRIPCION" />
+                <ScalarProperty Name="PRECIO" ColumnName="PRECIO" />
+                <ScalarProperty Name="IMAGEN" ColumnName="IMAGEN" />
+                <ScalarProperty Name="NRO_RESERVA" ColumnName="NRO_RESERVA" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RESERVA">
+            <EntityTypeMapping TypeName="SigloXXIModel.RESERVA">
+              <MappingFragment StoreEntitySet="RESERVA">
+                <ScalarProperty Name="NRO_RESERVA" ColumnName="NRO_RESERVA" />
+                <ScalarProperty Name="FECHA_RESERVA" ColumnName="FECHA_RESERVA" />
+                <ScalarProperty Name="HORA_RESERVA" ColumnName="HORA_RESERVA" />
+                <ScalarProperty Name="ID_USUARIO" ColumnName="ID_USUARIO" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TIPO_USUARIO">
+            <EntityTypeMapping TypeName="SigloXXIModel.TIPO_USUARIO">
+              <MappingFragment StoreEntitySet="TIPO_USUARIO">
+                <ScalarProperty Name="ID_TIPO_USUARIO" ColumnName="ID_TIPO_USUARIO" />
+                <ScalarProperty Name="DESCRIPCION" ColumnName="DESCRIPCION" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="USUARIO">
+            <EntityTypeMapping TypeName="SigloXXIModel.USUARIO">
+              <MappingFragment StoreEntitySet="USUARIO">
+                <ScalarProperty Name="ID_USUARIO" ColumnName="ID_USUARIO" />
+                <ScalarProperty Name="USERNAME" ColumnName="USERNAME" />
+                <ScalarProperty Name="PASSWORD" ColumnName="PASSWORD" />
+                <ScalarProperty Name="NOMBRE" ColumnName="NOMBRE" />
+                <ScalarProperty Name="APELLIDO" ColumnName="APELLIDO" />
+                <ScalarProperty Name="RUT" ColumnName="RUT" />
+                <ScalarProperty Name="TELEFONO" ColumnName="TELEFONO" />
+                <ScalarProperty Name="ESTADO" ColumnName="ESTADO" />
+                <ScalarProperty Name="ID_TIPO_USUARIO" ColumnName="ID_TIPO_USUARIO" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="SP_UPDATE_USUARIO" FunctionName="SigloXXIModel.Store.SP_UPDATE_USUARIO" />
+          <FunctionImportMapping FunctionImportName="SP_DELETE_USUARIO" FunctionName="SigloXXIModel.Store.SP_DELETE_USUARIO" />
+          <FunctionImportMapping FunctionImportName="SP_INSERT_USUARIO" FunctionName="SigloXXIModel.Store.SP_INSERT_USUARIO" />
+          <FunctionImportMapping FunctionImportName="SP_LOGIN" FunctionName="SigloXXIModel.Store.SP_LOGIN" />
+          <FunctionImportMapping FunctionImportName="SP_DELETE_INSUMO" FunctionName="SigloXXIModel.Store.SP_DELETE_INSUMO" />
+          <FunctionImportMapping FunctionImportName="SP_UPDATE_INSUMO" FunctionName="SigloXXIModel.Store.SP_UPDATE_INSUMO" />
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="true" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

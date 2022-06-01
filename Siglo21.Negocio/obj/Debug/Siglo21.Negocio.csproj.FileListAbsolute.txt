@@ -1,0 +1,13 @@
+C:\Users\xbast\Desktop\Portafolio 2\Siglo21\Siglo21.Negocio\bin\Debug\Siglo21.Negocio.dll
+C:\Users\xbast\Desktop\Portafolio 2\Siglo21\Siglo21.Negocio\bin\Debug\Siglo21.Negocio.pdb
+C:\Users\xbast\Desktop\Portafolio 2\Siglo21\Siglo21.Negocio\bin\Debug\Siglo21.DALC.dll
+C:\Users\xbast\Desktop\Portafolio 2\Siglo21\Siglo21.Negocio\bin\Debug\EntityFramework.dll
+C:\Users\xbast\Desktop\Portafolio 2\Siglo21\Siglo21.Negocio\bin\Debug\Siglo21.DALC.pdb
+C:\Users\xbast\Desktop\Portafolio 2\Siglo21\Siglo21.Negocio\bin\Debug\Siglo21.DALC.dll.config
+C:\Users\xbast\Desktop\Portafolio 2\Siglo21\Siglo21.Negocio\bin\Debug\EntityFramework.xml
+C:\Users\xbast\Desktop\Portafolio 2\Siglo21\Siglo21.Negocio\obj\Debug\Siglo21.Negocio.csproj.AssemblyReference.cache
+C:\Users\xbast\Desktop\Portafolio 2\Siglo21\Siglo21.Negocio\obj\Debug\Siglo21.Negocio.csproj.CoreCompileInputs.cache
+C:\Users\xbast\Desktop\Portafolio 2\Siglo21\Siglo21.Negocio\obj\Debug\Siglo21.Negocio.csproj.CopyComplete
+C:\Users\xbast\Desktop\Portafolio 2\Siglo21\Siglo21.Negocio\obj\Debug\Siglo21.Negocio.dll
+C:\Users\xbast\Desktop\Portafolio 2\Siglo21\Siglo21.Negocio\obj\Debug\Siglo21.Negocio.pdb
+C:\Users\xbast\Desktop\Portafolio 2\Siglo21\Siglo21.Negocio\bin\Debug\Siglo21.Negocio.dll.config

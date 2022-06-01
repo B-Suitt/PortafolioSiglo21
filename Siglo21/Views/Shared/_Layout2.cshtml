@@ -1,0 +1,63 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - Siglo XXI</title>
+    <link href="@Url.Content("./Content/Site.css")" rel="stylesheet" type="text/css" />
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <script src="~/Scripts/modernizr-2.8.3.js"></script>
+
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-2">
+                    <img src="~/Content/Images/logo.jpeg" class="img-circle" id="img-logo">
+                </div>
+
+                <div class="col-md-10">
+                    <div class="row">
+                        <div class="col-md-8">
+                            <h1 id="titulo">Siglo XXI</h1>
+                        </div>
+                        <div class="col-md-4" id="credenciales-menu">
+                            @if (ViewBag.login == 0)
+                            {
+                                <ul class="nav navbar">
+                                    <li><p><span class="glyphicon glyphicon-log-in"></span> @Html.ActionLink("Ingresar", "Ingresar", "Acceso", null, new { @class = "accesos" })</p></li>
+                                </ul>
+                            }
+                            else if (ViewBag.login == 1)
+                            {
+                                <ul class="nav navbar">
+                                    <li><p><span class="glyphicon glyphicon-log-out"></span> @Html.ActionLink("Cerrar SesiÃ³n", "Index", "Exit", null, new { @class = "accesos" })</p></li>
+                                </ul>
+                            }
+
+                        </div>
+                    </div>
+                    <div class="row">
+                        <ul class="nav navbar-nav" id="menu-head">
+                            <li>@Html.ActionLink("Inicio", "Index", "Home")</li>
+                            <li>@Html.ActionLink("Login", "Login", "Home")</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+        <footer>
+            <p>&copy; @DateTime.Now.Year - SigloXXI</p>
+        </footer>
+    </div>
+
+    <script src="~/Scripts/jquery-3.4.1.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+</body>
+</html>

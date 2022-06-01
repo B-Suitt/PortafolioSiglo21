@@ -1,0 +1,62 @@
+﻿@using Siglo21.Negocio
+@model List<Insumo>
+
+
+@{ViewBag.Title = "ListarInsumo"; }
+
+<h2>Lista De Insumo</h2>
+
+@*@using (Html.BeginForm("Login", "Home", FormMethod.Post))
+{
+    <div class="mb-3">
+        <label for="Nombre_Insumo" class="form-label">
+            Filtrar:
+        </label>
+        <input type="text" id="input" class="form-control" name="Nombre_Insumo" placeholder="Ingrese nombre insumo" />
+    </div>
+    <button type="submit" class="btn btn-primary">Ingresar</button>
+    <button type="reset" class="btn btn-primary">Limpiar</button>
+
+}*@
+
+@using (Ajax.BeginForm("FiltroInsumo", "", new AjaxOptions
+{
+    HttpMethod = "POST",
+    UpdateTargetId = "divInsumo",
+    InsertionMode = InsertionMode.Replace
+}, new { @id = "frmFiltro" }
+))
+{
+    @Html.Label("Ingrese Nombre")
+    @Html.TextBox("Nombre_Insumo", null, new { @class = "form-control" })
+    <div id="divInsumo">@Html.Partial("_ListarInsumo", Model)</div>
+}
+
+@*<table class="table">
+    <tr>
+        <th>ID INSUMO</th>
+        <th>NOMBRE ISUMO</th>
+        <th>DESCRIPCION</th>
+        <th>PRECIO</th>
+        <th>STOCK</th>
+    </tr>
+
+    @foreach (var item in ViewBag.ListaInsumo)
+    {
+        <tr>
+            <td>@item.ID_INSUMO</td>
+            <td>@item.NOMBRE_INSUMO</td>
+            <td>@item.DESCRIPCION</td>
+            <td>@item.PRECIO_UNITARIO</td>
+            <td>@item.STOCK</td>
+        </tr>
+    }
+
+</table>*@     
+
+<script>
+    var nombre = document.getElementById("Nombre_Insumo");
+    nombre.onkeyup = function () {
+        $("#frmFiltro").trigger("submit");
+    }
+</script> 

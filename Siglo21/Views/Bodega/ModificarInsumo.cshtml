@@ -1,0 +1,42 @@
+﻿@model Siglo21.Negocio.Insumo
+@{
+    ViewBag.Title = "ModificarInsumo";
+}
+
+<h2>ModificarInsumo</h2>
+
+
+
+
+@using (Html.BeginForm("ModificarInsumo", "Bodega", FormMethod.Post))
+
+{
+    <h2>ModificarUsuario</h2>
+
+
+    <div class="mb-3">
+        <label for="nombreInsumo" class="form-label">
+            Ingrese Nombre insumo
+        </label>
+        <input type="text" class="form-control" name="nombreInsumo" value="@Model.Nombre_Insumo" />
+    </div>
+    <div class="mb-3">
+        <label for="descripcion" class="form-label">
+            Ingrese descripcion
+        </label>
+        <input type="text" class="form-control" name="descripcion" value="@Model.Descripcion" />
+    </div>
+    <div class="mb-3">
+        <label for="precio" class="form-label">
+            Ingrese Precio Unitario
+        </label>
+        <input type="text" class="form-control" name="precio" value="@Model.Precio_Unitario" />
+    </div>
+    <div class="mb-3">
+        <label for="stock" class="form-label">
+            Ingrese nuevo stock
+        </label>
+        <input type="text" class="form-control" name="stock" value="@Model.Precio_Unitario" />
+    </div>
+    <button type="submit" class="btn btn-primary">Modificar Usuario</button>
+}

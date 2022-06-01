@@ -1,0 +1,59 @@
+﻿@model Siglo21.Negocio.Usuario
+
+@{
+    ViewBag.Title = "RegistrarUsuario";
+    List<SelectListItem> ListaTipoUsuario = (List<SelectListItem>)ViewBag.ListaTipoUsuario;
+}
+
+@using (Html.BeginForm("RegistrarUsuario", "Home", FormMethod.Post))
+{
+    <h1>Crear Usuario</h1>
+
+    <div class="mb-3">
+        <label for="username" class="form-label">
+            Ingrese usuario
+        </label>
+        <input type="text" class="form-control" name="username" />
+    </div>
+    <div class="mb-3">
+        <label for="password" class="form-label">
+            Ingrese contraseña
+        </label>
+        <input type="password" class="form-control" name="password" />
+    </div>
+    <div class="mb-3">
+        <label for="nombre" class="form-label">
+            Ingrese Nombre
+        </label>
+        <input type="text" class="form-control" name="nombre" />
+    </div>
+    <div class="mb-3">
+        <label for="apellido" class="form-label">
+            Ingrese Apellido
+        </label>
+        <input type="text" class="form-control" name="apellido" />
+    </div>
+    <div class="mb-3">
+        <label for="rut" class="form-label">
+            Ingrese Rut
+        </label>
+        <input type="text" class="form-control" name="rut" />
+    </div>
+    <div class="mb-3">
+        <label for="telefono" class="form-label">
+            Ingrese Telefono
+        </label>
+        <input type="text" class="form-control" name="telefono" />
+    </div>
+    <div class="mb-3">
+       @Html.DropDownListFor(d => d.TipoUsuario, new List<SelectListItem>
+    {
+        new SelectListItem() {Text = "ADMINISTRADOR", Value="1"},
+        new SelectListItem() {Text = "CLIENTE", Value="2"},
+        new SelectListItem() {Text = "BODEGERO", Value="3"}
+     }, new { @class = "form-control", @style = "width: 50%" })
+
+    </div>
+        <button type="submit" class="btn btn-primary">Crear Usuario</button>
+
+        }
